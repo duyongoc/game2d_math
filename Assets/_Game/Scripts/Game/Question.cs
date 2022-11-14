@@ -14,9 +14,8 @@ public class Question : MonoBehaviour
 
     [Space(10)]
     public GameObject objSelected;
-
-
     public string value;
+
 
 
     #region UNITY

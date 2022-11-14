@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ViewGameOver : View
 {
 
-    // inspector
+
     [Space(10)]
     [SerializeField] private Text textScore;
 
@@ -16,6 +16,8 @@ public class ViewGameOver : View
     [SerializeField] private Text textHighScore;
     [SerializeField] private Transform highScorePanel;
 
+
+    // private
     private bool _isDoneGameover;
 
 
@@ -35,38 +37,19 @@ public class ViewGameOver : View
     #region STATE
     public override void StartState()
     {
-        base.StartState();
-        StartView();
+        ShowScore();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        UpdateView();
     }
 
     public override void EndState()
     {
-        base.EndState();
-        EndView();
     }
     #endregion
 
 
-
-    private void StartView()
-    {
-        ShowScore();
-
-    }
-
-    private void UpdateView()
-    {
-    }
-
-    private void EndView()
-    {
-    }
 
 
     public void OnClickButtonReplay()
@@ -76,21 +59,13 @@ public class ViewGameOver : View
     }
 
 
-    private async void ShowScore()
+    private  void ShowScore()
     {
         int score = ScoreMgr.Instance.score;
         textScore.text = score.ToString();
 
         int highScore = ScoreMgr.Instance.highscore;
         textHighScore.text = highScore.ToString();
-
-        try
-        {
-            // await CoreGame.CoreClient.Instance.ReportHightScore("archer_score", score);
-        }
-        catch
-        {
-        }
     }
 
 

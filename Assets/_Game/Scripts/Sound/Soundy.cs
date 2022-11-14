@@ -7,7 +7,6 @@ public class Soundy : MonoBehaviour
 
     [SerializeField] 
     private AudioSource audioSource;
-    // private AudioClip audioClip;
 
 
     #region UNITY
@@ -19,6 +18,7 @@ public class Soundy : MonoBehaviour
     // {
     // }
     #endregion
+
 
 
     public void Play(AudioClip audi)

@@ -26,36 +26,17 @@ public class ViewInfo : View
     #region STATE
     public override void StartState()
     {
-        base.StartState();
-        StartView();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        UpdateView();
     }
 
     public override void EndState()
     {
-        base.EndState();
-        EndView();
     }
     #endregion
 
-
-
-    private void StartView()
-    {
-    }
-
-    private void UpdateView()
-    {
-    }
-
-    private void EndView()
-    {
-    }
 
 
     public void ShowInfo(string content, System.Action callback)
@@ -71,7 +52,6 @@ public class ViewInfo : View
         callbackContinue?.Invoke();
         gameObject.SetActive(false);
     }
-
 
 
 }

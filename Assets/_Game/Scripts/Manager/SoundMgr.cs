@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundMgr : Singleton<SoundMgr>
 {
 
-    //= inspector
+
     [Header("Setting")]
     [SerializeField] private SoundConfigSO config;
     [SerializeField] private Soundy soundyPrefab;
@@ -13,11 +13,6 @@ public class SoundMgr : Singleton<SoundMgr>
     [Header("Audio")]
     [SerializeField] private Transform musicAudio;
     [SerializeField] private Transform sfxAudio;
-
-
-    private static AudioSource audioMusic;
-    private static AudioSource audioSFX;
-
 
     // music
     public static AudioClip MUSIC_BACKGROUND;
@@ -27,8 +22,12 @@ public class SoundMgr : Singleton<SoundMgr>
     public static AudioClip SFX_PICK_RIGHT;
     public static AudioClip SFX_PICK_WRONG;
     public static AudioClip SFX_TIMECOUNT;
-
     public static AudioClip SFX_GAMEOVER;
+
+    
+    private static AudioSource audioMusic;
+    private static AudioSource audioSFX;
+
 
 
 

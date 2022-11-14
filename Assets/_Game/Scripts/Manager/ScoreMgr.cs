@@ -5,8 +5,7 @@ using UnityEngine;
 public class ScoreMgr : Singleton<ScoreMgr>
 {
 
-
-    // public
+    [Space(15)]
     public int score;
     public int highscore;
 
@@ -21,11 +20,8 @@ public class ScoreMgr : Singleton<ScoreMgr>
     {
         GameMgr.EVENT_RESET_INGAME -= ResetData;
     }
-
-    // private void Update()
-    // {
-    // }
     #endregion
+
 
 
     public void UpdateScore(int addScore = 10)

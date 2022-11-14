@@ -47,16 +47,15 @@ public class Answer : MonoBehaviour
     {
         transform.DORotate(new Vector3(0, 0, 90), timeEffect);
 
-        Sequence effectSq = DOTween.Sequence();
-        effectSq
-                // .Append(transform.DOScale(Vector3.one * 1.25f, timeEffect))
-                .Append(txtAnswer.DOFade(0, timeEffect))
-                .Append(imgAnswer.DOFade(0, timeEffect))
-                .OnComplete(() =>
-                {
-                    transform.DOKill();
-                    transform.localRotation = Quaternion.identity;
-                });
+        Sequence effect = DOTween.Sequence();
+        effect.Append(txtAnswer.DOFade(0, timeEffect))
+            .Append(imgAnswer.DOFade(0, timeEffect))
+            // .Append(transform.DOScale(Vector3.one * 1.25f, timeEffect))
+            .OnComplete(() =>
+            {
+                transform.DOKill();
+                transform.localRotation = Quaternion.identity;
+            });
     }
 
 
@@ -65,12 +64,13 @@ public class Answer : MonoBehaviour
         transform.DOKill();
 
         transform.GetComponent<Image>().DOFade(0, 1);
-        transform.transform.DOScale(Vector3.one * 1.5f, 1).SetEase(Ease.InOutQuad)
-            .OnComplete(() =>
-            {
-                transform.transform.localScale = Vector3.one;
-                transform.GetComponent<Image>().DOFade(1, 0);
-            });
+        transform.transform.DOScale(Vector3.one * 1.5f, 1)
+                        .SetEase(Ease.InOutQuad)
+                        .OnComplete(() =>
+                        {
+                            transform.transform.localScale = Vector3.one;
+                            transform.GetComponent<Image>().DOFade(1, 0);
+                        });
     }
 
 

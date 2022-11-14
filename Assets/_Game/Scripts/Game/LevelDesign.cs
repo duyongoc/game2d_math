@@ -7,7 +7,7 @@ public class LevelDesign : MonoBehaviour
 
     [Header("Config")]
     public SettingSO setting;
-    int level = 5;
+    // int level = 5;
 
     public TurnData GetTurn(int turn)
     {

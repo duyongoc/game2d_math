@@ -6,10 +6,6 @@ using Zenject;
 public class GameView : MonoBehaviour
 {
 
-
-    // private
-    private View _stateView;
-
     // DI
     [Inject] private ViewLoading _viewLoading;
     [Inject] private ViewInfo _viewInfo;
@@ -20,16 +16,19 @@ public class GameView : MonoBehaviour
     [Inject] private ViewNone _viewNone;
 
 
+    // private
+    private View _stateView;
+
     // properties
     public ViewInfo GetViewInfo => _viewInfo;
 
 
 
     #region UNITY
-    private void Start()
-    {
-        // Init();
-    }
+    // private void Start()
+    // {
+    //     Init();
+    // }
 
     private void Update()
     {
@@ -52,8 +51,8 @@ public class GameView : MonoBehaviour
     {
         switch (viewName)
         {
-            case "Loading": SetState(_viewLoading); break;
             // case "Info": SetState(_viewInfo); break;
+            case "Loading": SetState(_viewLoading); break;
             case "Menu": SetState(_viewMenu); break;
             case "InGame": SetState(_viewInGame); break;
             case "GameOver": SetState(_viewGameOver); break;
@@ -77,8 +76,8 @@ public class GameView : MonoBehaviour
 
     public void SetActiveView(string nameScene)
     {
-        _viewLoading.gameObject.SetActive(_viewLoading.name.Contains(nameScene));
         // _viewInfo.gameObject.SetActive(_viewInfo.name.Contains(nameScene));
+        _viewLoading.gameObject.SetActive(_viewLoading.name.Contains(nameScene));
         _viewMenu.gameObject.SetActive(_viewMenu.name.Contains(nameScene));
         _viewInGame.gameObject.SetActive(_viewInGame.name.Contains(nameScene));
         _viewGameOver.gameObject.SetActive(_viewGameOver.name.Contains(nameScene));

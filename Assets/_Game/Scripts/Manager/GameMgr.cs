@@ -11,10 +11,8 @@ public class GameMgr : Singleton<GameMgr>
     public static Action EVENT_RESET_INGAME;
     public GameState gameState = GameState.None;
 
-
     // DI
     [Inject] private GameView _gameView;
-
 
     // properties
     public bool IsInGameState => gameState == GameState.InGame;
@@ -69,8 +67,8 @@ public class GameMgr : Singleton<GameMgr>
 
         switch (gameState)
         {
-            case GameState.Loading: _gameView.SetStateView("Loading"); break;
             // case GameState.Info: _gameView.SetStateView("Info"); break;
+            case GameState.Loading: _gameView.SetStateView("Loading"); break;
             case GameState.Menu: _gameView.SetStateView("Menu"); break;
             case GameState.InGame: _gameView.SetStateView("InGame"); break;
             case GameState.GameOver: _gameView.SetStateView("GameOver"); break;

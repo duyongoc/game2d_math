@@ -11,8 +11,6 @@ public class GameScene : Singleton<GameScene>
 
     // inspector
     [Header("Param")]
-    // public LevelDesign levelDesign;
-
     public TurnData turnData;
     public MathData mathData;
 
@@ -27,22 +25,18 @@ public class GameScene : Singleton<GameScene>
     public int indexResult;
 
 
-    // DI
-    [Inject] ViewInGame _viewInGame;
-
-
     // private
+    [Inject] ViewInGame _viewInGame;
     private Math _math = new Math();
     private int _level = 1;
     private float _timeRemain;
 
 
-
     #region UNITY
-    private void Start()
-    {
-        // CacheComponent();
-    }
+    // private void Start()
+    // {
+    //     CacheComponent();
+    // }
 
     private void Update()
     {
@@ -204,7 +198,6 @@ public class GameScene : Singleton<GameScene>
         GameMgr.EVENT_RESET_INGAME?.Invoke();
         DOVirtual.DelayedCall(1f, () => { NextTurn(); });
     }
-
 
 
 

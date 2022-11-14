@@ -11,14 +11,12 @@ public class ViewInGame : View
 {
 
 
-    // inspector
     [Header("Text")]
     [SerializeField] private Text txtLevel;
     [SerializeField] private GameObject objLevel;
 
     [Space(10)]
     [SerializeField] private Slider sliderTimer;
-
 
 
     // private
@@ -41,36 +39,16 @@ public class ViewInGame : View
     #region STATE
     public override void StartState()
     {
-        base.StartState();
-        StartView();
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
-        UpdateView();
     }
 
     public override void EndState()
     {
-        base.EndState();
-        EndView();
     }
     #endregion
-
-
-
-    private void StartView()
-    {
-    }
-
-    private void UpdateView()
-    {
-    }
-
-    private void EndView()
-    {
-    }
 
 
 
