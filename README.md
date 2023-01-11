@@ -1,4 +1,4 @@
-# MathGame2d
+# math_game2d
 
 Play:
 - https://duyongoc.github.io/MathGame2d_web
