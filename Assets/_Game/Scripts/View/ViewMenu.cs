@@ -42,4 +42,10 @@ public class ViewMenu : View
     }
 
 
+    public void OnClickedLeaderBoard()
+    {
+        PlayfabController.Instance.ShowLeaderBoard();
+    }
+
+
 }

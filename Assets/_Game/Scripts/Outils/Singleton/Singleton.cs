@@ -10,10 +10,8 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
     /// Instance
     ///
     private static T instance;
-    private static object _lock = new object();
-    private static bool applicationIsQuitting = false;
-
     #endregion
+
 
     ///
     /// Gets instance
@@ -22,33 +20,19 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
     {
         get
         {
-            if (applicationIsQuitting)
+            if (instance == null)
             {
-                return null;
-            }
-
-            lock (_lock)
-            {
+                instance = FindObjectOfType<T>();
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<T>();
-                    if (instance == null)
-                    {
-                        GameObject obj = new GameObject();
-                        obj.name = typeof(T).Name;
-                        instance = obj.AddComponent<T>();
-                    }
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(T).Name;
+                    instance = obj.AddComponent<T>();
                 }
             }
 
             return instance;
         }
-    }
-
-
-    public void OnDestroy()
-    {
-        applicationIsQuitting = true;
     }
 
 
@@ -81,6 +65,5 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
         // Debug.Log(parentTransfrom.name);
         DontDestroyOnLoad(parentTransfrom.gameObject);
     }
-
 
 }
