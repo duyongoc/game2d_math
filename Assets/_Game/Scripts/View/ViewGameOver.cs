@@ -9,16 +9,10 @@ public class ViewGameOver : View
 {
 
 
-    [Space(10)]
+    [Header("[Setting]")]
     [SerializeField] private Text textScore;
-
-    [Space(10)]
     [SerializeField] private Text textHighScore;
     [SerializeField] private Transform highScorePanel;
-
-
-    // private
-    private bool _isDoneGameover;
 
 
 
@@ -51,6 +45,18 @@ public class ViewGameOver : View
 
 
 
+    private void ShowScore()
+    {
+        int score = ScoreMgr.Instance.score;
+        int highScore = ScoreMgr.Instance.highscore;
+        var playfab = PlayfabController.Instance;
+
+        textScore.text = score.ToString();
+        textHighScore.text = $"Current score: {score.ToString()} \nHigh score: {playfab.HighScore}";
+        playfab.CheckShowRecordScore(score);
+        // textHighScore.text = highScore.ToString();
+    }
+
 
     public void OnClickButtonReplay()
     {
@@ -59,14 +65,17 @@ public class ViewGameOver : View
     }
 
 
-    private  void ShowScore()
+    public void OnClickButtonMenu()
     {
-        int score = ScoreMgr.Instance.score;
-        textScore.text = score.ToString();
-
-        int highScore = ScoreMgr.Instance.highscore;
-        textHighScore.text = highScore.ToString();
+        GameScene.Instance.ResetGame();
+        GameMgr.Instance.SetState(GameState.Menu);
+        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
     }
 
+
+    public void OnClickButtonLeaderBoard()
+    {
+        PlayfabController.Instance.ShowLeaderBoard();
+    }
 
 }

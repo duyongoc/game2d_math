@@ -7,19 +7,19 @@ public class GameDefine
 
 public enum GameState
 {
-    Loading,
-    Menu,
+    // Loading,
     // Info,
+    // Setting,
+    // None
+    Menu,
     InGame,
     GameOver,
-    Setting,
-    None
 }
 
 public enum TypeTarget
 {
     None,
     MoveY,
-    // MoveXY,
     Jumping
+    // MoveXY,
 }

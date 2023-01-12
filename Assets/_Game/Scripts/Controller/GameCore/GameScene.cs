@@ -148,8 +148,6 @@ public class GameScene : Singleton<GameScene>
         answers.ToList().ForEach(x => x.PlayEffectWrong());
         SoundMgr.Instance.PlaySFX(SoundMgr.SFX_PICK_WRONG);
         DG.Tweening.DOVirtual.DelayedCall(1f, () => { GameMgr.Instance.GameOver(); });
-
-
     }
 
 

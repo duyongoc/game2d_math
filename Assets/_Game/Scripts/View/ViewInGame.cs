@@ -11,15 +11,13 @@ public class ViewInGame : View
 {
 
 
-    [Header("Text")]
+    [Header("[Setting]")]
     [SerializeField] private Text txtLevel;
+    [SerializeField] private Slider sliderTimer;
     [SerializeField] private GameObject objLevel;
 
-    [Space(10)]
-    [SerializeField] private Slider sliderTimer;
 
-
-    // private
+    // [private]
     private bool _cancelCounting = false;
 
 
@@ -68,16 +66,15 @@ public class ViewInGame : View
 
     public async void CountingTime(float value, Action callback)
     {
-        float currentTimer = value;
+        var playsound = false;
+        var currentTimer = value;
         sliderTimer.maxValue = value;
         sliderTimer.value = value;
-        bool playsound = false;
 
         while (currentTimer >= 0 && !_cancelCounting)
         {
             currentTimer -= .01f;
             sliderTimer.value = currentTimer;
-
             if (currentTimer <= 2 && !playsound)
             {
                 SoundMgr.PlaySFXOneShot(SoundMgr.SFX_TIMECOUNT);
@@ -102,12 +99,6 @@ public class ViewInGame : View
     }
 
 
-    public void UpdateWrongText(int wrong)
-    {
-        // PlayWrongAnimation();
-    }
-
-
     private void PlayCorrectAnimation()
     {
         objLevel.GetComponent<Image>().DOFade(0, 1);
@@ -127,6 +118,15 @@ public class ViewInGame : View
         objLevel.transform.localScale = Vector3.one * 0.45f;
         objLevel.GetComponent<Image>().DOFade(1, 0);
     }
+
+
+    public void OnClickButtonMenu()
+    {
+        GameScene.Instance.ResetGame();
+        GameMgr.Instance.SetState(GameState.Menu);
+        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
+    }
+
 
 
 }
