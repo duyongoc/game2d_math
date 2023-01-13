@@ -18,7 +18,7 @@ public class ViewInGame : View
 
 
     // [private]
-    private bool _cancelCounting = false;
+    private bool _countTime = false;
 
 
 
@@ -52,14 +52,14 @@ public class ViewInGame : View
 
     public void StartCountTime(float value)
     {
-        _cancelCounting = false;
+        _countTime = false;
         CountingTime(value, () => { GameScene.Instance.ShowTimeOut(); });
     }
 
 
     public void CancelCounting()
     {
-        _cancelCounting = true;
+        _countTime = true;
         SoundMgr.StopSFX(SoundMgr.SFX_TIMECOUNT);
     }
 
@@ -71,7 +71,8 @@ public class ViewInGame : View
         sliderTimer.maxValue = value;
         sliderTimer.value = value;
 
-        while (currentTimer >= 0 && !_cancelCounting)
+        // counting time
+        while (currentTimer >= 0 && !_countTime)
         {
             currentTimer -= .01f;
             sliderTimer.value = currentTimer;
@@ -111,8 +112,12 @@ public class ViewInGame : View
     }
 
 
-    public void ResetData()
+    public void Reset()
     {
+        _countTime = true;
+        sliderTimer.value = 0;
+        sliderTimer.maxValue = 0;
+
         txtLevel.text = "0";
         objLevel.transform.DOKill();
         objLevel.transform.localScale = Vector3.one * 0.45f;

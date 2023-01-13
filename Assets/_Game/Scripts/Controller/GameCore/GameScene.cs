@@ -187,7 +187,7 @@ public class GameScene : Singleton<GameScene>
     {
         _level = 1;
         _timeRemain = timeFinish;
-        _viewInGame.ResetData();
+        _viewInGame.Reset();
 
         transform.DOKill();
         answers.ToList().ForEach(x => x.RefeshTurn());
