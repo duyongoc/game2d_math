@@ -74,6 +74,7 @@ public class ViewInGame : View
         // counting time
         while (currentTimer >= 0 && !_countTime)
         {
+            // print("counting " + currentTimer);
             currentTimer -= .01f;
             sliderTimer.value = currentTimer;
             if (currentTimer <= 2 && !playsound)
@@ -127,7 +128,7 @@ public class ViewInGame : View
 
     public void OnClickButtonMenu()
     {
-        GameScene.Instance.ResetGame();
+        GameScene.Instance.Reset();
         GameMgr.Instance.SetState(GameState.Menu);
         SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
     }

@@ -48,7 +48,7 @@ public class GameMgr : Singleton<GameMgr>
 
     public void ReplayGame()
     {
-        GameScene.Instance.ResetGame();
+        GameScene.Instance.ResetReplay();
         SetState(GameState.InGame);
         SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
     }

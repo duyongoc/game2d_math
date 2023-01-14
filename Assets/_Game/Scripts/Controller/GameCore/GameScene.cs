@@ -9,7 +9,6 @@ using Zenject;
 public class GameScene : Singleton<GameScene>
 {
 
-    // inspector
     [Header("Param")]
     public TurnData turnData;
     public MathData mathData;
@@ -82,7 +81,7 @@ public class GameScene : Singleton<GameScene>
             case 3: mathData = _math.GenerateOperaterDivision(level, oper, turnData); break; // :
         }
 
-        print($"{mathData.number1} {mathData._operator}  {mathData.number2} {mathData.result}");
+        // print($"{mathData.number1} {mathData._operator}  {mathData.number2} {mathData.result}");
         SetTextOnQuestion();
     }
 
@@ -112,7 +111,7 @@ public class GameScene : Singleton<GameScene>
 
     public void AnswerTheQuestion(string result)
     {
-        print($"goodAnswer {goodAnswer} result {result}");
+        // print($"goodAnswer {goodAnswer} result {result}");
         switch (string.Equals(goodAnswer, result))
         {
             case true: NotifyCorrectAnswer(); break;
@@ -168,7 +167,7 @@ public class GameScene : Singleton<GameScene>
         questions.ToList().ForEach(x => x.RefeshTurn());
 
         NextTurn();
-        if (_timeRemain >= 1.5f) _timeRemain -= .2f; 
+        if (_timeRemain >= 1.5f) _timeRemain -= .2f;
     }
 
 
@@ -183,17 +182,23 @@ public class GameScene : Singleton<GameScene>
 
 
 
-    public void ResetGame()
+    public void Reset()
     {
         _level = 1;
-        _timeRemain = timeFinish;
         _viewInGame.Reset();
+        _timeRemain = timeFinish;
 
         transform.DOKill();
         answers.ToList().ForEach(x => x.RefeshTurn());
         questions.ToList().ForEach(x => x.RefeshTurn());
 
         GameMgr.EVENT_RESET_INGAME?.Invoke();
+    }
+
+
+    public void ResetReplay()
+    {
+        Reset();
         DOVirtual.DelayedCall(1f, () => { NextTurn(); });
     }
 

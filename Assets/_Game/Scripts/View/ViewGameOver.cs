@@ -67,7 +67,7 @@ public class ViewGameOver : View
 
     public void OnClickButtonMenu()
     {
-        GameScene.Instance.ResetGame();
+        GameScene.Instance.ResetReplay();
         GameMgr.Instance.SetState(GameState.Menu);
         SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
     }

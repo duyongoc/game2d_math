@@ -53,6 +53,7 @@ dc8c27c 3 days ago
 .vs/
 .vscode/
 
+
 # Gradle cache directory
 .gradle/
 
@@ -73,6 +74,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.DS_Store
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -107,3 +109,6 @@ API
 Training
 Blog
 About
+
+Assets/_Game/.DS_Store
+Assets/_Game/.DS_Store
