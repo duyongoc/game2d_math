@@ -84,12 +84,9 @@ public class UILeaderboard : MonoBehaviour
 
     public void CheckMeOnLeaderBoard(string id)
     {
+        // print($"id {id} mine: {mine}");
         var mine = itemCaches.Find(x => x.GetData.id.Equals(id));
-        print($"id {id} mine: {mine}");
-        if (mine != null)
-        {
-            mine.ShowMineBackground(true);
-        }
+        if (mine != null) mine.ShowMineBackground(true);
     }
 
 
@@ -144,8 +141,8 @@ public class UILeaderboard : MonoBehaviour
     {
         objLoading.SetActive(value);
     }
-    
-    
+
+
     public void ShowNoResultFound(bool value)
     {
         noResultFound.SetActive(value);

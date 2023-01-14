@@ -113,7 +113,6 @@ public static class TransformExtension
     {
         transfrom.DORotate(rotation, duration).OnComplete(() =>
         {
-            transfrom.ResetRotation();
             callback?.Invoke();
         });
     }
