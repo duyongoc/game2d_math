@@ -47,8 +47,8 @@ public class ViewGameOver : View
 
     private void ShowScore()
     {
-        int score = ScoreMgr.Instance.score;
-        int highScore = ScoreMgr.Instance.highscore;
+        int score = ScoreMgr.Instance.Score;
+        int highScore = ScoreMgr.Instance.Highscore;
         var playfab = PlayfabController.Instance;
 
         textScore.text = score.ToString();

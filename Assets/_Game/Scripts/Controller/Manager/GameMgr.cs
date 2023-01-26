@@ -7,14 +7,14 @@ using Zenject;
 public class GameMgr : Singleton<GameMgr>
 {
 
-    // public
-    public static Action EVENT_RESET_INGAME;
+    // [public]
+    // public static Action EVENT_RESET_INGAME;
     public GameState gameState = GameState.Menu;
 
-    // DI
+    // [DI]
     [Inject] private GameView _gameView;
 
-    // properties
+    // [properties]
     public bool IsInGameState => gameState == GameState.InGame;
 
 
@@ -66,10 +66,6 @@ public class GameMgr : Singleton<GameMgr>
         gameState = newState;
         switch (gameState)
         {
-            // case GameState.Info: _gameView.SetStateView("Info"); break;
-            // case GameState.Loading: _gameView.SetStateView("Loading"); break;
-            // case GameState.Setting: _gameView.SetStateView("Setting"); break;
-            // case GameState.None: _gameView.SetStateView("None"); break;
             case GameState.Menu: _gameView.SetStateView("Menu"); break;
             case GameState.InGame: _gameView.SetStateView("InGame"); break;
             case GameState.GameOver: _gameView.SetStateView("GameOver"); break;

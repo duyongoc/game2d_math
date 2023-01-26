@@ -192,7 +192,8 @@ public class GameScene : Singleton<GameScene>
         answers.ToList().ForEach(x => x.RefeshTurn());
         questions.ToList().ForEach(x => x.RefeshTurn());
 
-        GameMgr.EVENT_RESET_INGAME?.Invoke();
+        // post event
+        this.PostEvent(EventID.OnEvent_Reset);
     }
 
 

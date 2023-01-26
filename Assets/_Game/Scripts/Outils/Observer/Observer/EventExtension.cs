@@ -11,7 +11,7 @@ public enum EventID
     OnEvent_UpdateScore,
 
     // game
-    OnEvent_GameOver,
+    OnEvent_Reset,
 
 
     // if you need more event, add it here
