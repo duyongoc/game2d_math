@@ -1,4 +1,4 @@
-# math_game2d
+# game2d_math
 
 Play:
 - link: https://play.unity.com/mg/other/webgl-asy-1
