@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreMgr : Singleton<ScoreMgr>
+public class ScoreManager : Singleton<ScoreManager>
 {
 
     [Header("[Score]")]

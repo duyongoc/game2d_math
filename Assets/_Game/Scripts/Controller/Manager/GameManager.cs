@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class GameMgr : Singleton<GameMgr>
+public class GameManager : Singleton<GameManager>
 {
 
     // [public]
@@ -35,29 +35,29 @@ public class GameMgr : Singleton<GameMgr>
     private void InitGame()
     {
         SetState(gameState);
-        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
+        SoundManager.PlayMusic(SoundManager.MUSIC_BACKGROUND);
     }
 
 
     public void PlayGame()
     {
         SetState(GameState.InGame);
-        GameScene.Instance.InitScene();
+        GameScene.Instance.Play();
     }
 
 
     public void ReplayGame()
     {
-        GameScene.Instance.ResetReplay();
         SetState(GameState.InGame);
-        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
+        GameScene.Instance.OnReplay();
+        SoundManager.PlayMusic(SoundManager.MUSIC_BACKGROUND);
     }
 
 
     public void GameOver()
     {
         SetState(GameState.GameOver);
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_GAMEOVER);
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_GAMEOVER);
     }
 
 

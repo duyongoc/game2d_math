@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 180686631}
   - component: {fileID: 180686630}
   m_Layer: 5
-  m_Name: BestText
+  m_Name: TextBestScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2806,7 +2806,7 @@ GameObject:
   - component: {fileID: 375285209}
   - component: {fileID: 375285208}
   m_Layer: 5
-  m_Name: TheLastScoreText
+  m_Name: TextScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3631,7 +3631,7 @@ GameObject:
   - component: {fileID: 451616672}
   - component: {fileID: 451616671}
   m_Layer: 5
-  m_Name: Btn_Menu (1)
+  m_Name: Btn_Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4589,7 +4589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527210316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6739,7 +6739,6 @@ MonoBehaviour:
   imgAnswer: {fileID: 1010584881}
   txtAnswer: {fileID: 546581706}
   timeEffect: 0.5
-  value: 
 --- !u!1 &1037807586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7038,7 +7037,6 @@ MonoBehaviour:
   imgAnswer: {fileID: 1048253923}
   txtAnswer: {fileID: 466469095}
   timeEffect: 0.5
-  value: 
 --- !u!1 &1058755962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7650,7 +7648,7 @@ GameObject:
   - component: {fileID: 1116329248}
   - component: {fileID: 1116329247}
   m_Layer: 0
-  m_Name: SoundMgr
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8041,7 +8039,7 @@ GameObject:
   - component: {fileID: 1273995563}
   - component: {fileID: 1273995564}
   m_Layer: 0
-  m_Name: GameMgr
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9558,6 +9556,7 @@ MonoBehaviour:
     maxLevelEasy: 10
     maxLevelMedium: 50
     maxLevelHigh: 100
+  timeFinish: 5
   questions:
   - {fileID: 263015946}
   - {fileID: 1430926301}
@@ -9569,7 +9568,6 @@ MonoBehaviour:
   - {fileID: 1630655938}
   - {fileID: 1916653864}
   - {fileID: 1048253925}
-  timeFinish: 5
   goodAnswer: 
   indexQuestion: 0
   indexResult: 0
@@ -9951,7 +9949,6 @@ MonoBehaviour:
   imgAnswer: {fileID: 1630655936}
   txtAnswer: {fileID: 126020972}
   timeEffect: 0.5
-  value: 
 --- !u!1 &1738036218
 GameObject:
   m_ObjectHideFlags: 0
@@ -10915,7 +10912,6 @@ MonoBehaviour:
   imgAnswer: {fileID: 1916653862}
   txtAnswer: {fileID: 271198679}
   timeEffect: 0.5
-  value: 
 --- !u!1 &1965932574
 GameObject:
   m_ObjectHideFlags: 0
@@ -11688,8 +11684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a20194629fb4cd38b52e46158bcb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScore: {fileID: 207499005}
-  textHighScore: {fileID: 527210317}
+  textScore: {fileID: 375285208}
+  textHighScore: {fileID: 180686630}
   highScorePanel: {fileID: 0}
 --- !u!1 &1967587759855046649
 GameObject:

@@ -19,6 +19,8 @@ public class ViewInGame : View
 
     // [private]
     private bool _countTime = false;
+    private bool _playsound = false;
+    private float _currentTimer = -1;
 
 
 
@@ -52,44 +54,45 @@ public class ViewInGame : View
 
     public void StartCountTime(float value)
     {
+        print("StartCountTime");
         _countTime = false;
-        CountingTime(value, () => { GameScene.Instance.ShowTimeOut(); });
+        CountingTime(value);
     }
 
 
     public void CancelCounting()
     {
         _countTime = true;
-        SoundMgr.StopSFX(SoundMgr.SFX_TIMECOUNT);
+        SoundManager.StopSFX(SoundManager.SFX_TIMECOUNT);
     }
 
 
-    public async void CountingTime(float value, Action callback)
+    public async void CountingTime(float value)
     {
-        var playsound = false;
-        var currentTimer = value;
+        _playsound = false;
+        _currentTimer = value;
         sliderTimer.maxValue = value;
         sliderTimer.value = value;
 
         // counting time
-        while (currentTimer >= 0 && !_countTime)
+        while (_currentTimer >= 0 && !_countTime)
         {
             // print("counting " + currentTimer);
-            currentTimer -= .01f;
-            sliderTimer.value = currentTimer;
-            if (currentTimer <= 2 && !playsound)
+            _currentTimer -= .01f;
+            sliderTimer.value = _currentTimer;
+            if (_currentTimer <= 2 && !_playsound)
             {
-                SoundMgr.PlaySFXOneShot(SoundMgr.SFX_TIMECOUNT);
-                playsound = true;
+                SoundManager.PlaySFXOneShot(SoundManager.SFX_TIMECOUNT);
+                _playsound = true;
             }
 
             await UniTask.Delay(System.TimeSpan.FromSeconds(0.01f));
         }
 
         // out of time - lose game 
-        if (currentTimer < 0)
+        if (_currentTimer < 0)
         {
-            callback?.Invoke();
+            GameScene.Instance.ShowTimeOut();
         }
     }
 
@@ -115,7 +118,9 @@ public class ViewInGame : View
 
     public void Reset()
     {
+        print("Reset");
         _countTime = true;
+        _currentTimer = -1;
         sliderTimer.value = 0;
         sliderTimer.maxValue = 0;
 
@@ -129,8 +134,8 @@ public class ViewInGame : View
     public void OnClickButtonMenu()
     {
         GameScene.Instance.Reset();
-        GameMgr.Instance.SetState(GameState.Menu);
-        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
+        GameManager.Instance.SetState(GameState.Menu);
+        SoundManager.PlayMusic(SoundManager.MUSIC_BACKGROUND);
     }
 
 

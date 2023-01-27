@@ -9,19 +9,19 @@ using Zenject;
 public class GameScene : Singleton<GameScene>
 {
 
-    [Header("Param")]
-    public TurnData turnData;
-    public MathData mathData;
+    [Header("[Setting]")]
+    [SerializeField] private TurnData turnData;
+    [SerializeField] private MathData mathData;
 
-    [Space(10)]
-    public Question[] questions;
-    public Answer[] answers;
-    public float timeFinish;
+    [Header("[Question & Answer]")]
+    [SerializeField] private float timeFinish;
+    [SerializeField] private Question[] questions;
+    [SerializeField] private Answer[] answers;
 
-    [Space(10)]
-    public string goodAnswer;
-    public int indexQuestion;
-    public int indexResult;
+    [Header("[DEBUG]")]
+    [SerializeField] private string goodAnswer;
+    [SerializeField] private int indexQuestion;
+    [SerializeField] private int indexResult;
 
 
     // private
@@ -39,16 +39,16 @@ public class GameScene : Singleton<GameScene>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NextTurn();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     NextTurn();
+        // }
     }
     #endregion
 
 
 
-    public void InitScene()
+    public void Play()
     {
         _timeRemain = timeFinish;
         NextTurn();
@@ -132,10 +132,11 @@ public class GameScene : Singleton<GameScene>
         _viewInGame.UpdateLevel(_level++);
 
         // update score
-        ScoreMgr.Instance.UpdateScore(1);
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_PICK_RIGHT);
+        ScoreManager.Instance.UpdateScore(1);
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_PICK_RIGHT);
 
         // reset turn
+        // ResetTurn();
         DG.Tweening.DOVirtual.DelayedCall(1f, () => { ResetTurn(); });
     }
 
@@ -143,20 +144,28 @@ public class GameScene : Singleton<GameScene>
     public void NotifyWrongAnswer()
     {
         _viewInGame.CancelCounting();
-
         answers.ToList().ForEach(x => x.PlayEffectWrong());
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_PICK_WRONG);
-        DG.Tweening.DOVirtual.DelayedCall(1f, () => { GameMgr.Instance.GameOver(); });
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_PICK_WRONG);
+
+        DG.Tweening.DOVirtual.DelayedCall(1f, () =>
+        {
+            Reset();
+            GameManager.Instance.GameOver();
+        });
     }
 
 
     public void ShowTimeOut()
     {
         _viewInGame.CancelCounting();
-
         answers.ToList().ForEach(x => x.PlayEffectWrong());
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_PICK_WRONG);
-        DG.Tweening.DOVirtual.DelayedCall(1f, () => { GameMgr.Instance.GameOver(); });
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_PICK_WRONG);
+
+        DG.Tweening.DOVirtual.DelayedCall(1f, () =>
+        {
+            Reset();
+            GameManager.Instance.GameOver();
+        });
     }
 
 
@@ -167,7 +176,10 @@ public class GameScene : Singleton<GameScene>
         questions.ToList().ForEach(x => x.RefeshTurn());
 
         NextTurn();
-        if (_timeRemain >= 1.5f) _timeRemain -= .2f;
+        if (_timeRemain >= 1.5f)
+        {
+            _timeRemain -= .2f;
+        }
     }
 
 
@@ -180,6 +192,12 @@ public class GameScene : Singleton<GameScene>
         questions[3].SetValue(mathData.result.ToString()); // result
     }
 
+
+    public void OnReplay()
+    {
+        Reset();
+        DOVirtual.DelayedCall(1f, () => { NextTurn(); });
+    }
 
 
     public void Reset()
@@ -195,14 +213,6 @@ public class GameScene : Singleton<GameScene>
         // post event
         this.PostEvent(EventID.OnEvent_Reset);
     }
-
-
-    public void ResetReplay()
-    {
-        Reset();
-        DOVirtual.DelayedCall(1f, () => { NextTurn(); });
-    }
-
 
 
 }

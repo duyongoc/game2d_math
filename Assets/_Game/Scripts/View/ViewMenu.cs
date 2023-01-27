@@ -37,8 +37,8 @@ public class ViewMenu : View
 
     public void OnClickButtonPlay()
     {
-        GameMgr.Instance.PlayGame();
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_CLICK);
+        GameManager.Instance.PlayGame();
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_CLICK);
     }
 
 

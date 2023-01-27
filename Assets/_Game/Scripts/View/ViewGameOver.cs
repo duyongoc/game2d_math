@@ -31,7 +31,7 @@ public class ViewGameOver : View
     #region STATE
     public override void StartState()
     {
-        ShowScore();
+        Load();
     }
 
     public override void UpdateState()
@@ -45,31 +45,29 @@ public class ViewGameOver : View
 
 
 
-    private void ShowScore()
+    private void Load()
     {
-        int score = ScoreMgr.Instance.Score;
-        int highScore = ScoreMgr.Instance.Highscore;
+        int score = ScoreManager.Instance.Score;
+        int highScore = ScoreManager.Instance.Highscore;
         var playfab = PlayfabController.Instance;
 
         textScore.text = score.ToString();
-        textHighScore.text = $"Current score: {score.ToString()} \nHigh score: {playfab.HighScore}";
+        textHighScore.text = $"Best: {playfab.HighScore}";
         playfab.CheckShowRecordScore(score);
-        // textHighScore.text = highScore.ToString();
     }
 
 
     public void OnClickButtonReplay()
     {
-        GameMgr.Instance.ReplayGame();
-        SoundMgr.Instance.PlaySFX(SoundMgr.SFX_CLICK);
+        GameManager.Instance.ReplayGame();
+        SoundManager.Instance.PlaySFX(SoundManager.SFX_CLICK);
     }
 
 
     public void OnClickButtonMenu()
     {
-        GameScene.Instance.ResetReplay();
-        GameMgr.Instance.SetState(GameState.Menu);
-        SoundMgr.PlayMusic(SoundMgr.MUSIC_BACKGROUND);
+        GameManager.Instance.SetState(GameState.Menu);
+        SoundManager.PlayMusic(SoundManager.MUSIC_BACKGROUND);
     }
 
 
