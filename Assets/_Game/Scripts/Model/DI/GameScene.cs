@@ -24,11 +24,12 @@ public class GameScene : Singleton<GameScene>
     [SerializeField] private int indexResult;
 
 
-    // private
+    // [private]
     [Inject] ViewInGame _viewInGame;
     private Math _math = new Math();
-    private int _level = 1;
     private float _timeRemain;
+    private int _level = 1;
+
 
 
     #region UNITY
@@ -81,7 +82,7 @@ public class GameScene : Singleton<GameScene>
             case 3: mathData = _math.GenerateOperaterDivision(level, oper, turnData); break; // :
         }
 
-        // print($"{mathData.number1} {mathData._operator}  {mathData.number2} {mathData.result}");
+        // print($"{mathData.number1} {mathData._operator} {mathData.number2} {mathData.result}");
         SetTextOnQuestion();
     }
 
@@ -181,7 +182,6 @@ public class GameScene : Singleton<GameScene>
             _timeRemain -= .2f;
         }
     }
-
 
 
     private void SetTextOnQuestion()

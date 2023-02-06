@@ -7,7 +7,7 @@ using UnityEngine;
 public class TextScore : MonoBehaviour
 {
 
-    // inspector
+    [Header("[Setting]")]
     [SerializeField] private TMP_Text textScore;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float destroyTime;

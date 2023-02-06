@@ -8,7 +8,6 @@ public class GameManager : Singleton<GameManager>
 {
 
     // [public]
-    // public static Action EVENT_RESET_INGAME;
     public GameState gameState = GameState.Menu;
 
     // [DI]
@@ -71,8 +70,6 @@ public class GameManager : Singleton<GameManager>
             case GameState.GameOver: _gameView.SetStateView("GameOver"); break;
         }
     }
-
-
 
 
 }

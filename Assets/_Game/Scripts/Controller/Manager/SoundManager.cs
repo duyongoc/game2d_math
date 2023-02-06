@@ -14,10 +14,11 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private Transform musicAudio;
     [SerializeField] private Transform sfxAudio;
 
-    // music
+
+    // [music]
     public static AudioClip MUSIC_BACKGROUND;
 
-    // sfx
+    // [sfx]
     public static AudioClip SFX_CLICK;
     public static AudioClip SFX_PICK_RIGHT;
     public static AudioClip SFX_PICK_WRONG;
@@ -25,6 +26,7 @@ public class SoundManager : Singleton<SoundManager>
     public static AudioClip SFX_GAMEOVER;
 
     
+    // [private]
     private static AudioSource audioMusic;
     private static AudioSource audioSFX;
 
@@ -44,6 +46,7 @@ public class SoundManager : Singleton<SoundManager>
     #endregion
 
 
+
     public static void PlayMusic(AudioClip audi, bool loop = true)
     {
         audioMusic.clip = audi;
@@ -51,10 +54,12 @@ public class SoundManager : Singleton<SoundManager>
         audioMusic.Play();
     }
 
+
     public static void StopMusic()
     {
         audioMusic.Stop();
     }
+
 
     public void PlaySFX(AudioClip audi)
     {
@@ -69,25 +74,30 @@ public class SoundManager : Singleton<SoundManager>
         audioSFX.clip = null;
     }
 
+
     public static void StopSFX(AudioClip clip)
     {
         audioSFX.Stop();
     }
+
 
     public static void PlaySFXOneShot(AudioClip clip)
     {
         audioSFX.PlayOneShot(clip);
     }
 
+
     public static void PlaySFXBlend(AudioClip clip, AudioSource audioSource)
     {
         audioSource.PlayOneShot(clip);
     }
 
+
     public static bool MusicPlaying(AudioClip audi)
     {
         return audioMusic.clip == audi && audioMusic.isPlaying;
     }
+
 
     public static bool SFXPlaying(AudioClip audi)
     {
@@ -105,9 +115,9 @@ public class SoundManager : Singleton<SoundManager>
         SFX_PICK_RIGHT = config.SFX_PICK_RIGHT;
         SFX_PICK_WRONG = config.SFX_PICK_WRONG;
         SFX_TIMECOUNT = config.SFX_TIMECOUNT;
-
         SFX_GAMEOVER = config.SFX_GAMEOVER;
     }
+    
 
     private void CacheComponent()
     {

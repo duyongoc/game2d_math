@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Question : MonoBehaviour
 {
 
-    [Space(10)]
+    [Header("[Setting]")]
     public Image imgQuestion;
     public Text txtQuestion;
     public float timeEffect = 1.2f;
@@ -71,7 +71,7 @@ public class Question : MonoBehaviour
     {
         SetSelected(false);
         transform.DOKill();
-        
+
         imgQuestion.DOFade(1, 0);
         txtQuestion.DOFade(1, 0);
         transform.localScale = Vector3.one;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreManager : Singleton<ScoreManager>
 {
 
-    [Header("[Score]")]
+    [Header("[Setting]")]
     [SerializeField] private int score;
     [SerializeField] private int highscore;
 

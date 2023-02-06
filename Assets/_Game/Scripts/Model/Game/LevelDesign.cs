@@ -5,9 +5,10 @@ using UnityEngine;
 public class LevelDesign : MonoBehaviour
 {
 
-    [Header("Config")]
+    [Header("[Setting]")]
     public SettingSO setting;
     // int level = 5;
+
 
     public TurnData GetTurn(int turn)
     {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Answer : MonoBehaviour
 {
 
-    [Space(10)]
+    [Header("[Setting]")]
     public Image imgAnswer;
     public Text txtAnswer;
     public float timeEffect = 1.2f;

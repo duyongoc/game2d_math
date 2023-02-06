@@ -6,8 +6,10 @@ using UnityEngine;
 public class ViewInfo : View
 {
 
-
+    [Header("[Setting]")]
     public TMP_Text txtInfo;
+
+    // [private]
     private System.Action callbackContinue;
 
 
