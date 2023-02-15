@@ -23,10 +23,9 @@ public class Soundy : MonoBehaviour
 
     public void Play(AudioClip audi)
     {
+        gameObject.name = audi.name;
         audioSource.clip = audi;
         audioSource.Play();
-
-        gameObject.name = audi.name;
         SelfDestroy();
     }
 

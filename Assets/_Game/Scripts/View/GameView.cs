@@ -46,9 +46,12 @@ public class GameView : MonoBehaviour
     {
         switch (viewName)
         {
-            case "Menu": SetState(_viewMenu); break;
-            case "InGame": SetState(_viewInGame); break;
-            case "GameOver": SetState(_viewGameOver); break;
+            case "Menu":
+                SetState(_viewMenu); break;
+            case "InGame":
+                SetState(_viewInGame); break;
+            case "GameOver":
+                SetState(_viewGameOver); break;
         }
     }
 
@@ -61,7 +64,7 @@ public class GameView : MonoBehaviour
         _stateView = newState;
         _stateView.StartState();
 
-        //active view with current state
+        // active view with current state
         SetActiveView(_stateView.GetType().Name);
     }
 

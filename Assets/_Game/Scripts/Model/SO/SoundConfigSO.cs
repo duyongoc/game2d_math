@@ -6,10 +6,10 @@ using UnityEngine;
 public class SoundConfigSO : ScriptableObject
 {
 
-    [Header("Music")]
+    [Header("[Music]")]
     public AudioClip MUSIC_BACKGROUND;
 
-    [Header("SFX", order = 1)]
+    [Header("[SFX]")]
     public AudioClip SFX_CLICK;
     public AudioClip SFX_PICK_RIGHT;
     public AudioClip SFX_PICK_WRONG;

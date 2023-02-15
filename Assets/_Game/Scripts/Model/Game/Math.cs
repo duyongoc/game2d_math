@@ -41,8 +41,10 @@ public class Math
             {
                 // easy
                 case 0: if (mathData.number1 >= turnData.maxLevelEasy || mathData.number2 >= turnData.maxLevelEasy) isOK = false; break;
+                
                 // medium
                 case 1: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
+                
                 // high
                 case 2: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
             }
@@ -71,8 +73,10 @@ public class Math
             {
                 // easy
                 case 0: if (mathData.number1 >= turnData.maxLevelEasy || mathData.number2 >= turnData.maxLevelEasy) isOK = false; break;
+                
                 // medium
                 case 1: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
+                
                 // high
                 case 2: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
             }
@@ -101,8 +105,10 @@ public class Math
             {
                 // easy
                 case 0: if (mathData.number1 >= turnData.maxLevelEasy || mathData.number2 >= turnData.maxLevelEasy) isOK = false; break;
+                
                 // medium
                 case 1: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
+                
                 // high
                 case 2: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
             }
@@ -131,8 +137,10 @@ public class Math
             {
                 // easy
                 case 0: if (mathData.number1 >= turnData.maxLevelEasy || mathData.number2 >= turnData.maxLevelEasy) isOK = false; break;
+                
                 // medium
                 case 1: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
+                
                 // high
                 case 2: if (mathData.number1 >= turnData.maxLevelMedium || mathData.number2 >= turnData.maxLevelMedium) isOK = false; break;
             }

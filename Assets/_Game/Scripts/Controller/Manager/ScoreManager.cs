@@ -9,6 +9,7 @@ public class ScoreManager : Singleton<ScoreManager>
     [SerializeField] private int score;
     [SerializeField] private int highscore;
 
+
     // [properties]
     public int Score { get => score; }
     public int Highscore { get => highscore; }

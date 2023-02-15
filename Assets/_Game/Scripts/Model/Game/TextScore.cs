@@ -25,6 +25,7 @@ public class TextScore : MonoBehaviour
     #endregion
 
 
+
     public void Init(int score, Color color)
     {
         textScore.text = $"+{score}";
@@ -38,11 +39,7 @@ public class TextScore : MonoBehaviour
         }
 
         textScore.DOFade(1, 0);
-        textScore.DOFade(0, destroyTime)
-            .OnComplete(() =>
-            {
-                Destroy(this.gameObject);
-            });
+        textScore.DOFade(0, destroyTime).OnComplete(() => { Destroy(this.gameObject); });
     }
 
 

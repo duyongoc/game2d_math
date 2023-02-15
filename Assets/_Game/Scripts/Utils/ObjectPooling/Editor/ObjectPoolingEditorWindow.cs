@@ -11,11 +11,11 @@ using Pools;
 public class ObjectPoolingEditorWindow : EditorWindow
 {
 
+    // [private]
     private GUIStyle menuButton;
     private GUIStyle selectedMenuButton;
     private string selectedMenuIndex;
     private Vector2 menuScrollPosition;
-
 
 
     [MenuItem("Window/Open Object Pooling Tracking", false, 600)]

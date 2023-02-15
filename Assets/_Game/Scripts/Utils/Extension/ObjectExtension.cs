@@ -10,5 +10,4 @@ public static class ObjectExtension
         return (T)obj;
     }
 
-
 }

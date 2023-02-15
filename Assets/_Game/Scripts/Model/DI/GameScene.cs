@@ -70,9 +70,9 @@ public class GameScene : Singleton<GameScene>
     public void RandomQuestion()
     {
         // setup for the turn
-        int rand = UnityEngine.Random.Range(0, 4);
-        int level = turnData.level;
-        string oper = _math.GetOperator(rand);
+        var rand = UnityEngine.Random.Range(0, 4);
+        var level = turnData.level;
+        var oper = _math.GetOperator(rand);
 
         switch (rand)
         {
