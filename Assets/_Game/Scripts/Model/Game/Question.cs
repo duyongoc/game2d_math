@@ -55,10 +55,9 @@ public class Question : MonoBehaviour
         transform.DOScale(Vector3.one * 1.1f, timeEffect * 2);
 
         Sequence effectSq = DOTween.Sequence();
-        effectSq
-                // .Append(transform.DOScale(Vector3.one * 1.25f, timeEffect))
-                .Append(txtQuestion.DOFade(0, timeEffect))
+        effectSq.Append(txtQuestion.DOFade(0, timeEffect))
                 .Append(imgQuestion.DOFade(0, timeEffect))
+                // .Append(transform.DOScale(Vector3.one * 1.25f, timeEffect))
                 .OnComplete(() =>
                 {
                     transform.DOKill();

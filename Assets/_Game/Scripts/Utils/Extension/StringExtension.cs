@@ -13,7 +13,6 @@ public class StringValueAttribute : Attribute
     }
 }
 
-
 public static class StringExtension
 {
 
